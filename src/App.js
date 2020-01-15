@@ -1,33 +1,44 @@
-import React, { useEffect } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import api from './services/api';
+import React from 'react';
+
+import styles from 'App.module.css';
 
 function App() {
-  useEffect(() => {
-    async function loadDevs() {
-      const response = await api.get('devs');
-      console.log('response:', response.data);
-    }
+  function handleSubmit(event) {
+    event.preventDefault();
+  }
 
-    loadDevs();
-  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={styles.container}>
+      <aside>
+        <strong>Cadastrar</strong>
+        <form onSubmit={handleSubmit} noValidate>
+          <div className={styles.block}>
+            <label htmlFor="github_username">
+              <span>Usuário do Github</span>
+              <input name="github_username" id="github_username" type="text" />
+            </label>
+
+            <label htmlFor="techs">
+              <span>Tecnologias</span>
+              <input name="techs" id="techs" type="text" />
+            </label>
+
+            <div className={styles.inline}>
+              <label htmlFor="latitude">
+                <span>Latitude</span>
+                <input name="latitude" id="latitude" type="text" />
+              </label>
+
+              <label htmlFor="longitude">
+                <span>Longitude</span>
+                <input name="longitude" id="longitude" type="text" />
+              </label>
+            </div>
+          </div>
+          <button>top</button>
+        </form>
+      </aside>
+      <main>da balada</main>
     </div>
   );
 }
