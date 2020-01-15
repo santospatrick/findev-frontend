@@ -2,6 +2,7 @@
   "name": "findev-frontend",
   "version": "0.1.0",
   "private": true,
+  "prettier": "@santospatrick/prettier-config",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
@@ -14,10 +15,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
+    "eject": "react-scripts eject",
+    "lint": "eslint --fix src --ext .js"
   },
   "browserslist": {
     "production": [
@@ -30,5 +29,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@santospatrick/eslint-config-react": "^1.0.6",
+    "@santospatrick/prettier-config": "^1.0.0",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-plugin-prettier": "^3.1.2"
   }
 }
