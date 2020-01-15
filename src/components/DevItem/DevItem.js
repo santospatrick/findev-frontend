@@ -1,11 +1,13 @@
 import React from 'react';
 
+import styles from './style.module.css';
+
 function DevItem({ dev }) {
   return (
-    <li className="dev-item">
-      <header>
+    <li className={styles.container}>
+      <header className={styles.header}>
         <img src={dev.avatar_url} alt="Patrick Santos" />
-        <div className="user-info">
+        <div className={styles.userInfo}>
           <strong>{dev.name}</strong>
           <span>{dev.techs.join(', ')}</span>
         </div>
