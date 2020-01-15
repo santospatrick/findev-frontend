@@ -1,6 +1,7 @@
 import React from 'react';
 
 import styles from 'App.module.css';
+import './Sidebar.css';
 
 function App() {
   function handleSubmit(event) {
@@ -13,29 +14,29 @@ function App() {
         <strong>Cadastrar</strong>
         <form onSubmit={handleSubmit} noValidate>
           <div className={styles.block}>
-            <label htmlFor="github_username">
+            <label className="input" htmlFor="github_username">
               <span>Usuário do Github</span>
               <input name="github_username" id="github_username" type="text" />
             </label>
 
-            <label htmlFor="techs">
+            <label className="input" htmlFor="techs">
               <span>Tecnologias</span>
               <input name="techs" id="techs" type="text" />
             </label>
 
             <div className={styles.inline}>
-              <label htmlFor="latitude">
+              <label className="input" htmlFor="latitude">
                 <span>Latitude</span>
                 <input name="latitude" id="latitude" type="text" />
               </label>
 
-              <label htmlFor="longitude">
+              <label className="input" htmlFor="longitude">
                 <span>Longitude</span>
                 <input name="longitude" id="longitude" type="text" />
               </label>
             </div>
           </div>
-          <button>top</button>
+          <button>Salvar</button>
         </form>
       </aside>
       <main>da balada</main>
