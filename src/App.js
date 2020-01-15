@@ -6,6 +6,8 @@ import './Main.css';
 import api from 'services/api';
 
 function App() {
+  const [devs, setDevs] = useState([]);
+
   const [latitude, setLatitude] = useState('');
   const [longitude, setLongitude] = useState('');
   const [github_username, setGithub] = useState('');
@@ -27,6 +29,16 @@ function App() {
     );
   }, []);
 
+  useEffect(() => {
+    async function loadDevs() {
+      const response = await api.get('devs');
+
+      setDevs(response.data);
+    }
+
+    loadDevs();
+  }, []);
+
   async function handleSubmit(event) {
     event.preventDefault();
 
@@ -41,6 +53,8 @@ function App() {
 
     setGithub('');
     setTechs('');
+
+    setDevs([...devs, response.data]);
   }
 
   return (
@@ -101,70 +115,21 @@ function App() {
 
       <main>
         <ul>
-          <li className="dev-item">
-            <header>
-              <img
-                src="https://avatars0.githubusercontent.com/u/13510169?s=460&v=4"
-                alt="Patrick Santos"
-              />
-              <div className="user-info">
-                <strong>Patrick Santos</strong>
-                <span>React.js, React Native & Vue.js</span>
-              </div>
-            </header>
-            <p>Front End Developer | React.js, React Native & Vue.js</p>
-            <a href="https://github.com/santospatrick">
-              Acessar perfil do Github
-            </a>
-          </li>
-          <li className="dev-item">
-            <header>
-              <img
-                src="https://avatars0.githubusercontent.com/u/13510169?s=460&v=4"
-                alt="Patrick Santos"
-              />
-              <div className="user-info">
-                <strong>Patrick Santos</strong>
-                <span>React.js, React Native & Vue.js</span>
-              </div>
-            </header>
-            <p>Front End Developer | React.js, React Native & Vue.js</p>
-            <a href="https://github.com/santospatrick">
-              Acessar perfil do Github
-            </a>
-          </li>
-          <li className="dev-item">
-            <header>
-              <img
-                src="https://avatars0.githubusercontent.com/u/13510169?s=460&v=4"
-                alt="Patrick Santos"
-              />
-              <div className="user-info">
-                <strong>Patrick Santos</strong>
-                <span>React.js, React Native & Vue.js</span>
-              </div>
-            </header>
-            <p>Front End Developer | React.js, React Native & Vue.js</p>
-            <a href="https://github.com/santospatrick">
-              Acessar perfil do Github
-            </a>
-          </li>
-          <li className="dev-item">
-            <header>
-              <img
-                src="https://avatars0.githubusercontent.com/u/13510169?s=460&v=4"
-                alt="Patrick Santos"
-              />
-              <div className="user-info">
-                <strong>Patrick Santos</strong>
-                <span>React.js, React Native & Vue.js</span>
-              </div>
-            </header>
-            <p>Front End Developer | React.js, React Native & Vue.js</p>
-            <a href="https://github.com/santospatrick">
-              Acessar perfil do Github
-            </a>
-          </li>
+          {devs.map(dev => (
+            <li key={dev._id} className="dev-item">
+              <header>
+                <img src={dev.avatar_url} alt="Patrick Santos" />
+                <div className="user-info">
+                  <strong>{dev.name}</strong>
+                  <span>{dev.techs.join(', ')}</span>
+                </div>
+              </header>
+              <p>{dev.bio ? dev.bio : 'Usuário não tem descrição'}</p>
+              <a href={`https://github.com/${dev.github_username}`}>
+                Acessar perfil do Github
+              </a>
+            </li>
+          ))}
         </ul>
       </main>
     </div>
