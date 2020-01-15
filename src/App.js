@@ -2,6 +2,7 @@ import React from 'react';
 
 import styles from 'App.module.css';
 import './Sidebar.css';
+import './Main.css';
 
 function App() {
   function handleSubmit(event) {
@@ -39,7 +40,75 @@ function App() {
           <button>Salvar</button>
         </form>
       </aside>
-      <main>da balada</main>
+
+      <main>
+        <ul>
+          <li className="dev-item">
+            <header>
+              <img
+                src="https://avatars0.githubusercontent.com/u/13510169?s=460&v=4"
+                alt="Patrick Santos"
+              />
+              <div className="user-info">
+                <strong>Patrick Santos</strong>
+                <span>React.js, React Native & Vue.js</span>
+              </div>
+            </header>
+            <p>Front End Developer | React.js, React Native & Vue.js</p>
+            <a href="https://github.com/santospatrick">
+              Acessar perfil do Github
+            </a>
+          </li>
+          <li className="dev-item">
+            <header>
+              <img
+                src="https://avatars0.githubusercontent.com/u/13510169?s=460&v=4"
+                alt="Patrick Santos"
+              />
+              <div className="user-info">
+                <strong>Patrick Santos</strong>
+                <span>React.js, React Native & Vue.js</span>
+              </div>
+            </header>
+            <p>Front End Developer | React.js, React Native & Vue.js</p>
+            <a href="https://github.com/santospatrick">
+              Acessar perfil do Github
+            </a>
+          </li>
+          <li className="dev-item">
+            <header>
+              <img
+                src="https://avatars0.githubusercontent.com/u/13510169?s=460&v=4"
+                alt="Patrick Santos"
+              />
+              <div className="user-info">
+                <strong>Patrick Santos</strong>
+                <span>React.js, React Native & Vue.js</span>
+              </div>
+            </header>
+            <p>Front End Developer | React.js, React Native & Vue.js</p>
+            <a href="https://github.com/santospatrick">
+              Acessar perfil do Github
+            </a>
+          </li>
+          <li className="dev-item">
+            <header>
+              <img
+                src="https://avatars0.githubusercontent.com/u/13510169?s=460&v=4"
+                alt="Patrick Santos"
+              />
+              <div className="user-info">
+                <strong>Patrick Santos</strong>
+                <span>React.js, React Native & Vue.js</span>
+              </div>
+            </header>
+            <p>Front End Developer | React.js, React Native & Vue.js</p>
+            <a href="https://github.com/santospatrick">
+              Acessar perfil do Github
+            </a>
+          </li>
+        </ul>
+      </main>
     </div>
   );
 }
